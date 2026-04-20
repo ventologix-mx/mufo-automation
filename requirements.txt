@@ -1,0 +1,5 @@
+paho-mqtt
+mysql-connector-python
+python-dotenv
+twilio
+pytz
