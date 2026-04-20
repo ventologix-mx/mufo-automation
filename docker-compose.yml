@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  rtu-stack:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rtu-stack
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PYTHONUNBUFFERED: "1"
+    network_mode: "host"
+    volumes:
+      - ./logs:/var/log/supervisor
+    healthcheck:
+      test: ["CMD", "supervisorctl", "status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
