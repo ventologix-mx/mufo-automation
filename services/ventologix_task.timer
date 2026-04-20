@@ -1,0 +1,9 @@
+[Unit]
+Description=Programar tarea Ventologix
+
+[Timer]
+OnCalendar=*-*-* 6:25:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

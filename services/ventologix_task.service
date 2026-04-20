@@ -1,0 +1,12 @@
+[Unit]
+Description=Ejecutar tarea Ventologix
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/hector_tovar/Ventologix
+ExecStart=/home/hector_tovar/Ventologix/scripts/shell/sendMail.sh
+User=hector_tovar
+Environment=PATH=/home/hector_tovar/Ventologix/vento/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+StandardOutput=journal
+StandardError=journal

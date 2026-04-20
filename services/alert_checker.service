@@ -1,0 +1,14 @@
+[Unit]
+Description=Servicio de alerta por correo usando virtualenv
+After=network.target
+
+[Service]
+Type=simple
+User=hector_tovar
+WorkingDirectory=/home/hector_tovar/Ventologix
+Environment="PATH=/home/hector_tovar/Ventologix/vento/bin"
+ExecStart=/home/hector_tovar/Ventologix/vento/bin/python /home/hector_tovar/Ventologix/scripts/VM/checkDataBase>
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

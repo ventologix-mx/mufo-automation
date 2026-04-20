@@ -19,8 +19,6 @@ except Exception:
 
 load_dotenv()
 
-# ==================== CONFIG ====================
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", ".."))
 DOWNLOADS_FOLDER = os.path.join(BASE_DIR, "pdfs")
