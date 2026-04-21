@@ -59,12 +59,11 @@ def on_message(client, userdata, msg):
 
     try:
         payload = json.loads(msg.payload.decode())
-        logging.info(f"📨 Mensaje recibido: {payload}")
 
         id_kpm = payload.get("id")
         if not id_kpm:
-            logging.error("❌ No se encontró 'id' en payload")
             return
+        logging.info(f"📨 id_kpm a insertar: {id_kpm}")
 
         cursor.execute(
             "SELECT id, id_cliente FROM dispositivos WHERE id_kpm = %s",
@@ -94,7 +93,7 @@ def on_message(client, userdata, msg):
         values = (device_id, ua, ub, uc, ia, ib, ic, time_fmt)
 
         cursor.execute("""
-            INSERT INTO telemetria (device_id, ua, ub, uc, ia, ib, ic, time)
+            INSERT INTO datos (device_id, ua, ub, uc, ia, ib, ic, time)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """, values)
 
